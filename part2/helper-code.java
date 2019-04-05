@@ -2,19 +2,19 @@ import java.util.*;
 import java.io.*;
 
 
-// some bits of java code that you may use if you wish.
-// assumes that the enclosing class has fields:
-//   int numCategories;
-//   int numAtts;
-//   List<String> categoryNames;
-//   List<String> attNames;
-//   List<Instance> allInstances;
+ some bits of java code that you may use if you wish.
+ assumes that the enclosing class has fields:
+   int numCategories;
+   int numAtts;
+   List<String> categoryNames;
+   List<String> attNames;
+   List<Instance> allInstances;
 
 
   private void readDataFile(String fname){
     /* format of names file:
-     * names of categories, separated by spaces
-     * names of attributes
+     * names of categoryNames, separated by spaces
+     * names of attNames
      * category followed by true's and false's for each instance
      */
     System.out.println("Reading data from file "+fname);
@@ -43,8 +43,7 @@ import java.io.*;
   private List<Instance> readInstances(Scanner din){
     /* instance = classname and space separated attribute values */
     List<Instance> instances = new ArrayList<Instance>();
-    String ln;
-    while (din.hasNext()){ 
+    while (din.hasNext()){
       Scanner line = new Scanner(din.nextLine());
       instances.add(new Instance(categoryNames.indexOf(line.next()),line));
     }
